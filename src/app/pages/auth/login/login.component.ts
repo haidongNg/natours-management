@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginResponse } from 'src/app/core/models';
 import { AuthService } from 'src/app/core/services';
 
 @Component({
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
   */
   formLogin: FormGroup;
 
-  constructor(private _fb: FormBuilder, private _authService: AuthService) {
+  constructor(private _fb: FormBuilder, private _authService: AuthService, private _router: Router) {
     this.formLogin = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -30,8 +32,9 @@ export class LoginComponent implements OnInit {
       return;
     }
     this._authService.login(this.formLogin.value)
-      .subscribe(resp => {
-        console.log(resp)
+      .subscribe((resp: LoginResponse) => {
+        localStorage.setItem('NATOUR', resp.token);
+        this._router.navigateByUrl('/');
       });
   }
 }

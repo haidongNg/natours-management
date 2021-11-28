@@ -49,7 +49,6 @@ export class NotificationComponent implements OnInit, OnDestroy {
     // subscribe to new alert notifications
     this.notificationSubscription = this._notificationService.onNotification(this.id)
       .subscribe((noti) => {
-        console.log(noti)
         if (!noti.message) {
           // filter out notifications without 'keepAfterRouteChange' flag
           this.notifications = this.notifications.filter(x => x.keepAfterRouteChange);

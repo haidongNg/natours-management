@@ -4,15 +4,22 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SpinnerComponent } from './core/components';
-import { NotificationComponent } from './core/components/notification.component';
+import { SpinnerComponent, NotificationComponent, DropdownComponent } from './core/components';
 import { ErrorInterceptor } from './core/interceptors';
+import { HeaderComponent, NavbarComponent, PagesComponent } from './core/layouts';
+import { Page404Component } from './pages/errors/page404/page404.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SpinnerComponent,
     NotificationComponent,
+    PagesComponent,
+    NavbarComponent,
+    HeaderComponent,
+    DropdownComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,

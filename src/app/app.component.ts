@@ -8,7 +8,7 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'natours-management';
-  constructor(private _router: Router) {}
+  constructor(private _router: Router) { }
 
   ngOnInit() {
     this._router.events.subscribe((route) => {
@@ -21,5 +21,4 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
 }
