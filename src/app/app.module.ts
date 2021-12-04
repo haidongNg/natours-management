@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpinnerComponent, NotificationComponent, DropdownComponent } from './core/components';
 import { ErrorInterceptor } from './core/interceptors';
-import { HeaderComponent, NavbarComponent, PagesComponent } from './core/layouts';
+import { HeaderComponent, SidebarComponent, PagesComponent } from './core/layouts';
 import { Page404Component } from './pages/errors/page404/page404.component';
 
 
@@ -16,10 +16,10 @@ import { Page404Component } from './pages/errors/page404/page404.component';
     SpinnerComponent,
     NotificationComponent,
     PagesComponent,
-    NavbarComponent,
+    SidebarComponent,
     HeaderComponent,
     DropdownComponent,
-    Page404Component
+    Page404Component,
   ],
   imports: [
     BrowserModule,

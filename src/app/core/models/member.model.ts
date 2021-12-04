@@ -1,5 +1,5 @@
 export interface IMember {
-  email: string;
+  email?: string;
   roles?: string[];
   token?: string;
 }

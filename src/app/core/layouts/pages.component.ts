@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   <div>
     <div class="flex h-screen bg-gray-100 dark:bg-gray-800 font-roboto">
     <!-- Start navbar -->
-    <app-navbar [sidebarOpen]="sidebarOpen" (sidebarEmit)="toggleSidebar($event)"></app-navbar>
+    <app-sidebar [sidebarOpen]="sidebarOpen" (sidebarEmit)="toggleSidebar($event)"></app-sidebar>
     <!-- End navber -->
     <div class="flex-1 flex flex-col overflow-hidden">
       <!-- Start header -->
@@ -13,12 +13,9 @@ import { Component, Input } from '@angular/core';
       <!-- End header -->
       <main class="flex-1 overflow-x-hidden overflow-y-auto">
         <div class="container mx-auto px-6 py-8">
-          <div
-            class="grid place-items-center h-96 text-gray-500 dark:text-gray-300 text-xl border-4 border-gray-300 border-dashed">
             <!--Start content -->
             <router-outlet></router-outlet>
             <!--End content -->
-          </div>
         </div>
        </main>
       </div>

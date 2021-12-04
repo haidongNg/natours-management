@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IMemberLogin, JWTDecode, LoginResponse } from '../models';
+import { IMember, IMemberLogin, JWTProfile, LoginResponse } from '../models';
 
 import _jwtDecode from 'jwt-decode';
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private url = environment.apiUrl + '/members';
+  profile: JWTProfile = { id: '', name: '', iat: 0, exp: 0, roles: [] };
   constructor(private http: HttpClient, private _router: Router) { }
 
   /**
@@ -35,7 +36,7 @@ export class AuthService {
       return false;
     }
 
-    const decoded: JWTDecode = _jwtDecode(token);
+    const decoded: JWTProfile = _jwtDecode(token);
 
     if (!decoded) {
       return false;
@@ -45,6 +46,7 @@ export class AuthService {
       return false;
     }
 
+    this.profile = decoded;
     return true;
   }
 
@@ -56,4 +58,5 @@ export class AuthService {
     localStorage.removeItem('NATOUR');
     this._router.navigateByUrl('/login');
   }
+
 }

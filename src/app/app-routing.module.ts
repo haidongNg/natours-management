@@ -9,7 +9,16 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     canActivate: [AuthGuard],
-    children: [],
+    children: [
+      {
+        path: 'tour-management',
+        loadChildren: () => import('./pages/tour-management/tour-management.module').then(m => m.TourManagementModule),
+      },
+      {
+        path: 'user-management',
+        loadChildren: () => import('./pages/user-management/user-management.module').then(m => m.UserManagementModule),
+      }
+    ],
   },
   {
     path: 'login',

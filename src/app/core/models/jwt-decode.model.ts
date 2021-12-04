@@ -1,4 +1,4 @@
-export interface JWTDecode {
+export interface JWTProfile {
   id: string;
   name: string;
   roles: string[];

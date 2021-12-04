@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IDropdown } from '../../models';
+import { IDropdown, JWTProfile } from '../../models';
 import { AuthService } from '../../services';
 
 @Component({
@@ -10,6 +10,7 @@ import { AuthService } from '../../services';
 export class HeaderComponent implements OnInit {
   dropMenu: IDropdown[];
   darkMode = false;
+  profile: JWTProfile;
 
   /**
    * Input
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
   @Output() sidebarEmit: EventEmitter<boolean> = new EventEmitter<boolean>(false);
 
   constructor(private _authService: AuthService) {
-    this.dropMenu = [{ name: 'Profile' }, { name: 'Tickets' }, { name: 'Logout', handle: () => _authService.logout() }];
+    this.dropMenu = [{ name: 'Profile' }, { name: 'Tickets' }, { name: 'Logout', handle: () => this._authService.logout() }];
+    this.profile = this._authService.profile;
   }
 
   ngOnInit(): void {
