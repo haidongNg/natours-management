@@ -5,7 +5,6 @@ import { TourManagementRoutingModule } from './tour-management-routing.module';
 import { TourManagementComponent } from './tour-management.component';
 import { PopupComponent } from 'src/app/core/components';
 import { TourListComponent } from './tour-list/tour-list.component';
-import { CreateTourComponent } from './create-tour/create-tour.component';
 
 
 @NgModule({
@@ -13,7 +12,6 @@ import { CreateTourComponent } from './create-tour/create-tour.component';
     TourManagementComponent,
     PopupComponent,
     TourListComponent,
-    CreateTourComponent,
   ],
   imports: [
     CommonModule,
